@@ -1,7 +1,10 @@
 import { Container, Text, VStack, Box, Flex, Spacer, Button } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import { useSupabaseAuth } from "../integrations/supabase/auth.jsx";
 
 const Index = () => {
+  const { session, logout } = useSupabaseAuth();
+
   return (
     <Container maxW="container.xl" p={4}>
       <Flex as="nav" bg="gray.100" p={4} borderRadius="md" boxShadow="md">
@@ -11,7 +14,12 @@ const Index = () => {
         <Spacer />
         <Box>
           <Button as={Link} to="/" variant="ghost" mr={4}>Home</Button>
-          <Button as={Link} to="/about" variant="ghost">About</Button>
+          <Button as={Link} to="/about" variant="ghost" mr={4}>About</Button>
+          {session ? (
+            <Button variant="ghost" onClick={logout}>Logout</Button>
+          ) : (
+            <Button as={Link} to="/login" variant="ghost">Login</Button>
+          )}
         </Box>
       </Flex>
       <VStack spacing={4} mt={10}>
