@@ -15,6 +15,7 @@ const Index = () => {
         <Box>
           <Button as={Link} to="/" variant="ghost" mr={4}>Home</Button>
           <Button as={Link} to="/about" variant="ghost" mr={4}>About</Button>
+          <Button as={Link} to="/private" variant="ghost" mr={4}>Private</Button>
           {session ? (
             <Button variant="ghost" onClick={logout}>Logout</Button>
           ) : (
