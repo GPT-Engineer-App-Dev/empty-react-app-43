@@ -8,8 +8,8 @@ function App() {
     <Router>
       <Routes>
         <Route exact path="/" element={<Index />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/private" element={<Private />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/private" element={<Private />} />
       </Routes>
     </Router>
   );
